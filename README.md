@@ -95,7 +95,7 @@ A comprehensive, modern web application designed to help you quit smoking and st
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/quit-smoking-app.git
+   git clone https://github.com/martowe/quit-smoking-app.git
    cd quit-smoking-app
    ```
 
@@ -304,8 +304,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 - 📧 **Email**: support@quitsmoking-app.com
-- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/quit-smoking-app/issues)
-- 📖 **Documentation**: [Wiki](https://github.com/yourusername/quit-smoking-app/wiki)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/martowe/quit-smoking-app/issues)
+- 📖 **Documentation**: [Wiki](https://github.com/martowe/quit-smoking-app/wiki)
 
 ---
 
@@ -315,7 +315,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 *Your journey to a smoke-free life starts with a single decision. We're here to support you every step of the way.*
 
-[![Give a ⭐️ if this project helped you!](https://img.shields.io/badge/Give%20a%20⭐️%20if%20this%20project%20helped%20you!-yellow)](https://github.com/yourusername/quit-smoking-app)
+[![Give a ⭐️ if this project helped you!](https://img.shields.io/badge/Give%20a%20⭐️%20if%20this%20project%20helped%20you!-yellow)](https://github.com/martowe/quit-smoking-app)
 
 </div>
 
