@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access Denied - Quit Smoking App</title>
+  <link rel="icon" type="image/svg+xml" th:href="@{/images/favicon.svg}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/toast.css}"/>
+  <link rel="stylesheet" th:href="@{/css/dark-mode.css}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .error-container {
+      text-align: center;
+      padding: 50px 20px;
+      max-width: 600px;
+      margin: 50px auto;
+    }
+    
+    .error-image {
+      margin-bottom: 30px;
+    }
+    
+    .error-image svg {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .error-title {
+      color: #e74c3c;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    
+    .error-message {
+      margin-bottom: 30px;
+      padding: 15px;
+      background-color: rgba(231, 76, 60, 0.1);
+      border-radius: 8px;
+      border-left: 4px solid #e74c3c;
+    }
+    
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .login-button {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .login-button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    .home-button {
+      background-color: #f1f1f1;
+      color: var(--text-color);
+    }
+    
+    .home-button:hover {
+      background-color: #e1e1e1;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+<div class="error-container">
+  <div class="error-image">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <circle cx="256" cy="256" r="240" fill="#f8d7da"/>
+      <path d="M336 192h-16v-64c0-53.02-42.98-96-96-96s-96 42.98-96 96v64h-16c-26.51 0-48 21.49-48 48v176c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48V240c0-26.51-21.49-48-48-48zm-128 192c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm64-192H160v-64c0-35.29 28.71-64 64-64s64 28.71 64 64v64z" fill="#e74c3c"/>
+    </svg>
+  </div>
+  <h1 class="error-title">Access Denied</h1>
+  
+  <div class="error-message">
+    <p>You don't have permission to access this page.</p>
+    <p>Please log in with appropriate credentials to continue.</p>
+  </div>
+  
+  <div class="button-container">
+    <a href="/login" class="button login-button">Log In</a>
+    <a href="/" class="button home-button">Return to Home</a>
+  </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script src="/js/toast.js"></script>
+<script src="/js/dark-mode.js"></script>
+</body>
+</html>
+</html>

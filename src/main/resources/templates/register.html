@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Quit Smoking App</title>
+    <link rel="icon" type="image/svg+xml" th:href="@{/images/favicon.svg}">    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/loading.css}"/>
+    <link rel="stylesheet" th:href="@{/css/toast.css}"/>    <link rel="stylesheet" th:href="@{/css/dark-mode.css}"/>
+    <link rel="stylesheet" th:href="@{/css/login-register.css}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: var(--background-color); display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+<div class="container" style="background-color: var(--card-bg); color: var(--text-color);">    <h1>Create Account</h1>
+    
+    <div th:if="${error}" class="error-message" style="color: #e74c3c; margin-bottom: 20px; background-color: rgba(231, 76, 60, 0.1); padding: 15px; border-radius: 8px; border-left: 4px solid #e74c3c; font-weight: 500; box-shadow: 0 2px 10px rgba(231, 76, 60, 0.15); animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;">
+        <p th:text="${error}"></p>
+    </div>
+    
+    <form th:action="@{/register}" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required placeholder="Choose a username"/>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required placeholder="Choose a password"/>
+        </div>
+
+        <button type="submit">Register</button>    </form>    <p style="margin-top: 25px;">Already have an account? <a th:href="@{/login}">Login here</a></p>
+</div>
+
+<script src="/js/loading.js"></script>
+<script src="/js/toast.js"></script>
+<script src="/js/dark-mode.js"></script>
+
+<script>
+  // Convert error message to toast notification
+  document.addEventListener('DOMContentLoaded', function() {
+    // Handle error messages
+    const errorElement = document.querySelector('.error-message');
+    if (errorElement) {
+      const errorText = errorElement.textContent.trim();
+      if (errorText) {
+        // Hide the original error message
+        errorElement.style.display = 'none';
+        // Show as toast with auth-error type for username/password related errors
+        if (errorText.includes("Username") || 
+            errorText.includes("Password") || 
+            errorText.includes("Registration failed")) {
+          showToast(errorText, 'auth-error', 5000);
+        } else {
+          showToast(errorText, 'error', 5000);
+        }
+      }
+    }
+    
+    // Add validation for the register form
+    const registerForm = document.querySelector('form[action="/register"]');
+    if (registerForm) {
+      registerForm.addEventListener('submit', function(event) {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+        
+        if (!username) {
+          event.preventDefault();
+          showToast('Username cannot be empty', 'auth-error', 3000);
+          return false;
+        }
+        
+        if (username.length < 3) {
+          event.preventDefault();
+          showToast('Username must be at least 3 characters long', 'auth-error', 3000);
+          return false;
+        }
+        
+        if (!password) {
+          event.preventDefault();
+          showToast('Password cannot be empty', 'auth-error', 3000);
+          return false;
+        }
+        
+        if (password.length < 6) {
+          event.preventDefault();
+          showToast('Password must be at least 6 characters long', 'auth-error', 3000);
+          return false;
+        }
+      });    }
+  });
+  
+  // Dark mode functionality is handled by dark-mode.js
+</script>
+</body>
+</html>
+

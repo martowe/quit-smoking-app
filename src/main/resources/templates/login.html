@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Quit Smoking App</title>
+  <link rel="icon" type="image/svg+xml" th:href="@{/images/favicon.svg}">  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/loading.css}"/>
+  <link rel="stylesheet" th:href="@{/css/toast.css}"/>  <link rel="stylesheet" th:href="@{/css/dark-mode.css}"/>
+  <link rel="stylesheet" th:href="@{/css/login-register.css}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: var(--background-color); display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+<div class="container" style="background-color: var(--card-bg); color: var(--text-color);">  <h1>Welcome Back</h1>
+  <div th:if="${error}" class="error-message" style="color: #e74c3c; margin-bottom: 20px; background-color: rgba(231, 76, 60, 0.1); padding: 10px; border-radius: 8px;">
+    <p th:text="${error}"></p>
+  </div>
+  
+  <div th:if="${message}" class="success-message" style="color: #27ae60; margin-bottom: 20px; background-color: rgba(39, 174, 96, 0.1); padding: 10px; border-radius: 8px;">
+    <p th:text="${message}"></p>
+  </div>
+
+  <form th:action="@{/login}" method="post">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required placeholder="Enter your username"/>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required placeholder="Enter your password"/>
+    </div>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <p style="margin-top: 25px;">New user? <a th:href="@{/register}">Create an account</a></p>
+</div>
+
+<script src="/js/loading.js"></script>
+<script src="/js/toast.js"></script>
+<script src="/js/dark-mode.js"></script>
+
+<script>
+  // Convert error and success messages to toast notifications
+  document.addEventListener('DOMContentLoaded', function() {
+    // Handle error messages
+    const errorElement = document.querySelector('.error-message');
+    if (errorElement) {
+      const errorText = errorElement.innerText;
+      if (errorText) {
+        // Hide the original error message
+        errorElement.style.display = 'none';
+        // Show as toast
+        showToast(errorText, 'error', 5000);
+      }
+    }
+    
+    // Handle success messages
+    const successElement = document.querySelector('.success-message');
+    if (successElement) {
+      const successText = successElement.innerText;
+      if (successText) {
+        // Hide the original success message
+        successElement.style.display = 'none';
+        // Show as toast
+        showToast(successText, 'success', 5000);
+      }
+    }
+
+    // Validate form on submit
+    const loginForm = document.querySelector('form[th\\:action="@{/login}"]');
+    if (loginForm) {
+      loginForm.addEventListener('submit', function(event) {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        
+        if (!username) {
+          event.preventDefault();
+          showToast('Please enter your username', 'error', 3000);
+          return false;
+        }
+        
+        if (!password) {
+          event.preventDefault();
+          showToast('Please enter your password', 'error', 3000);
+          return false;
+        }
+      });    }
+  });
+  
+  // Dark mode functionality is handled by dark-mode.js
+</script>
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<footer th:fragment="footer" class="site-footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img th:src="@{/images/logo.svg}" alt="QuitSmoke Logo" height="30">
+            <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2025</span> QuitSmoke App</p>
+        </div>
+        <div class="footer-links">
+            <a href="/quit-progress">Progress</a>
+            <a href="/quit-plan">Quit Plan</a>
+            <a href="/quit-tips">Quit Tips</a>
+        </div>
+        <div class="footer-info">
+            <p>An app designed to help you quit smoking and live a healthier life.</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

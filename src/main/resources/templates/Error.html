@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error - Quit Smoking App</title>  <link rel="icon" type="image/svg+xml" th:href="@{/images/favicon.svg}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/toast.css}"/>
+  <link rel="stylesheet" th:href="@{/css/dark-mode.css}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .error-container {
+      text-align: center;
+      padding: 50px 20px;
+      max-width: 600px;
+      margin: 50px auto;
+    }
+    
+    .error-image {
+      margin-bottom: 30px;
+    }
+    
+    .error-image svg {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .error-title {
+      color: #e74c3c;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    
+    .error-message {
+      margin-bottom: 30px;
+      padding: 15px;
+      background-color: rgba(231, 76, 60, 0.1);
+      border-radius: 8px;
+      border-left: 4px solid #e74c3c;
+    }
+    
+    .back-button {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+    
+    .back-button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+<div class="error-container">
+  <div class="error-image">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <circle cx="256" cy="256" r="240" fill="#f8d7da"/>
+      <path d="M256 128l-96 96h64v128h64V224h64z" fill="#e74c3c"/>
+      <path d="M256 400a32 32 0 100-64 32 32 0 000 64z" fill="#e74c3c"/>
+    </svg>
+  </div>
+  <h1 class="error-title">Oops! Something went wrong.</h1>
+  
+  <div class="error-message" th:if="${error != null}">
+    <p><strong>Error:</strong> <span th:text="${error}">An unexpected error occurred</span></p>
+  </div>
+  <div class="error-message" th:unless="${error != null}">
+    <p>We encountered an unexpected error while processing your request.</p>
+  </div>
+  
+  <p>Please try again later or contact support if the problem persists.</p>
+  
+  <a href="/" class="back-button">Back to Home</a>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script src="/js/toast.js"></script>
+<script src="/js/dark-mode.js"></script>
+</body>
+</html>

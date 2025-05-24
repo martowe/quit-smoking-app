@@ -1,0 +1,42 @@
+.print-report-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition);
+  box-shadow: var(--box-shadow);
+}
+
+.print-report-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.print-report-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .print-container, .print-container * {
+    visibility: visible;
+  }
+  
+  .print-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
