@@ -6,8 +6,6 @@
 
 A comprehensive, modern web application designed to help you quit smoking and stay motivated throughout your journey. Track your progress, celebrate milestones, and discover the health benefits of being smoke-free with real-time updates and achievement badges.
 
-![App Preview](https://via.placeholder.com/800x400/3cb371/ffffff?text=Quit+Smoking+App+Dashboard)
-
 ## ✨ Features
 
 ### 🔐 **User Management**
@@ -270,51 +268,6 @@ Users can unlock 7 progressive badges:
 - Customizable financial goals
 - Visual progress indicators
 
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**Database Connection Failed**
-- Verify MySQL is running
-- Check username/password in `application.properties`
-- Ensure database exists
-
-**Application Won't Start**
-- Verify Java 17 is installed
-- Check Maven dependencies
-- Review application logs
-
-**UI Not Loading Properly**
-- Clear browser cache
-- Check console for JavaScript errors
-- Verify static resources are accessible
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Medical research** from various health organizations for milestone data
-- **Spring Boot community** for excellent documentation
-- **Bootstrap** and **Font Awesome** for UI inspiration
-- **WHO** and **CDC** for smoking cessation guidelines
-
-## 📞 Support
-
-- 📧 **Email**: support@quitsmoking-app.com
-- 🐛 **Issues**: [GitHub Issues](https://github.com/martowe/quit-smoking-app/issues)
-- 📖 **Documentation**: [Wiki](https://github.com/martowe/quit-smoking-app/wiki)
-
----
-
-<div align="center">
-
-**Made with ❤️ to help you quit smoking and live healthier!**
-
-*Your journey to a smoke-free life starts with a single decision. We're here to support you every step of the way.*
-
-[![Give a ⭐️ if this project helped you!](https://img.shields.io/badge/Give%20a%20⭐️%20if%20this%20project%20helped%20you!-yellow)](https://github.com/martowe/quit-smoking-app)
 
 </div>
 
